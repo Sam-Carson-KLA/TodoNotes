@@ -1,0 +1,10 @@
+<h1>Note Keeper</h1>
+<mat-form-field>
+  <input matInput placeholder="Note Name" [(ngModel)]="newNote" />
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="makeNote()">Add Note</button>
+<div fxLayout="row wrap" fxLayoutGap="20px grid" fxLayoutAlign="start" >
+  <div fxFlex.gt-md="33.33333" fxFlex.md="50" fxFlex.lt-md="100" *ngFor="let list of lists" class="note" >
+    <app-list-note (noteDeleted)='deleteNote($event)' [list]="list"></app-list-note>
+  </div>
+</div>

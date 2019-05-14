@@ -1,0 +1,94 @@
+.listCard {
+  background-color: #607d8b;
+  /*width: 200px;*/
+  border-radius: 10px;
+}
+
+.moreBtn {
+  position: relative;
+  top: -10px;
+  right: -10px;
+  outline: none;
+  border: 0;
+}
+
+.moreItem {
+  outline: none;
+  border: 0;
+}
+
+.color1 {
+  outline: none;
+  border: 0;
+}
+
+.color2 {
+  outline: none;
+  border: 0;
+  background-color: red;
+}
+
+.color3 {
+  outline: none;
+  border: 0;
+  background-color: yellow;
+}
+
+.color4 {
+  outline: none;
+  border: 0;
+  background-color: blue;
+}
+
+.checkbox {
+  margin-right: 10px;
+}
+
+.item {
+  position: relative;
+  top: -3px;
+}
+
+.itemClear {
+  position: absolute;
+  top: -5px;
+  left: 90%;
+}
+
+.listItem {
+  position: relative;
+  top: -4px;
+  margin: -1px;
+}
+
+.addItemLine {
+  display: inline-block;
+  margin-top: -20px;
+  margin-left: -5px;
+}
+
+.addItem {
+  position: relative;
+  background-color: transparent;
+  top: -6px;
+  max-width: 75%;
+  height: 5px;
+}
+
+h4 {
+  text-align: left;
+  margin-left: -35px;
+  padding-bottom: 10px;
+}
+
+.footer {
+  visibility: hidden;
+}
+
+.listCard:hover .footer {
+  visibility: visible;
+}
+
+.footerItem {
+  margin: 10px;
+}

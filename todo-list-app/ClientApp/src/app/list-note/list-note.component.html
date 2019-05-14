@@ -1,0 +1,47 @@
+<p *ngIf="!todoList"><em>Loading...</em></p>
+
+<mat-card class="listCard" *ngIf="todoList">
+  <mat-card-header><h4>{{list.name}}</h4></mat-card-header>
+  <mat-card-content class="listItem" *ngFor="let item of todoList">
+    <span *ngIf="item.listId == list.id">
+      <mat-checkbox class="checkbox" (change)="updateCompletion($event)" color="primary" id={{item.id}} [checked]="item.isComplete"></mat-checkbox>
+      <span class="item">{{item.name}}</span>
+      <span class="itemClear"><mat-icon (click)="deleteItem(item)">close</mat-icon></span>
+    </span>
+  </mat-card-content>
+  <span class="addItemLine">
+    <mat-icon>add</mat-icon>
+    <mat-form-field class="addItem" (keydown)="keyDownFunction($event)">
+      <input matInput [(ngModel)]="value" autocomplete="off"/>
+      <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </span>
+  <mat-card-footer>
+    <span class="footer">
+      <mat-icon class="footerItem" (click)="deleteNote()" matTooltip="Delete Note">delete</mat-icon>
+      <mat-icon class="footerItem" [matMenuTriggerFor]="menu" matTooltip="Change Color">color_lens</mat-icon>
+      <mat-menu #menu="matMenu">
+        <button class="color1" mat-menu-item>white</button>
+        <button class="color2" mat-menu-item>red</button>
+        <button class="color3" mat-menu-item>yellow</button>
+        <button class="color4" mat-menu-item>blue</button>
+      </mat-menu>
+    </span>
+
+<!-- Menu to display more options -->
+    <!--<button class="moreBtn" mat-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+    <mat-menu class="more" #menu="matMenu">
+      <button class="moreItem" mat-menu-item>
+        <mat-icon>delete</mat-icon>
+        <span>Delete</span>
+      </button>
+      <button class="moreItem" mat-menu-item>
+        <mat-icon></mat-icon>
+        <span>Change Color</span>
+      </button>
+    </mat-menu>-->
+  </mat-card-footer>
+</mat-card>
+
