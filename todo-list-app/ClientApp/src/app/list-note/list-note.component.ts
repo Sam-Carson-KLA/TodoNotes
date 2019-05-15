@@ -15,13 +15,26 @@ import { TagContentType } from '../../../node_modules/@angular/compiler';
 export class ListNoteComponent implements OnInit {
 
     @Input() list: List;
+    @Output() noteUpdated = new EventEmitter();
     @Output() noteDeleted = new EventEmitter();
   
     public todoList: TodoItem[];
     value = "";
 
-    changeColor(): void {
-        console.log("change color");
+    updateColor(color): void {
+        console.log("change color: " + color);
+
+        if (color == 'white') {
+            this.list.colorHex = '#ffffff';
+        } else if (color == 'red') {
+            this.list.colorHex = '#f48d86';
+        } else if (color == 'yellow') {
+            this.list.colorHex = '#f7f7ad';
+        } else { //blue
+            this.list.colorHex = '#5d98f7';
+        }
+
+        this.noteUpdated.emit(this.list);
     }
 
     deleteNote(): void {
@@ -110,6 +123,7 @@ interface TodoItem {
 interface List {
     id: number;
     name: string;
+    colorHex: string;
 }
 
 

@@ -15,15 +15,15 @@ export class TodoListComponent implements OnInit {
 
     makeNote(): void {
         console.log("Make note: " + this.newNote);
-        this.addNote(this.newNote);
+        this.addNote(this.newNote, '#ffffff');
 
         this.newNote = "";
     }
 
-    addNote(name: string): void {
+    addNote(name: string, colorHex: string): void {
         name = name.trim();
         if (!name) { return; }
-        this.noteService.addNote({name} as List)
+        this.noteService.addNote({name, colorHex} as List)
             .subscribe(item => {
                 this.lists.push(item);
             })
@@ -35,9 +35,14 @@ export class TodoListComponent implements OnInit {
         let index = this.lists.indexOf(list);
         this.lists.splice(index, 1);
     }
+
+    updateNote(list): void {
+        this.noteService.update(list).subscribe();
+    }
     
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, private noteService: NoteService) {
+    constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, private noteService: NoteService) {
+      console.log("Constructor");
       http.get<List[]>(baseUrl + 'api/todo-list/').subscribe(result => {
           this.lists = result;
           console.log("Lists to display: ");
@@ -60,6 +65,7 @@ interface TodoItem {
 interface List {
     id: number;
     name: string;
+    colorHex: string;
 }
 
 

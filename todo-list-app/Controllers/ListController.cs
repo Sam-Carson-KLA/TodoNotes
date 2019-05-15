@@ -4,17 +4,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TodoApi.Models;
+using todo_list_app.Models;
 
-namespace TodoApi.Controllers
+namespace todo_list_app.Controllers
 {
     [Route("api/todo-list")]
     [ApiController]
     public class ListController : ControllerBase
     {
-        private readonly ListContext _context;
+        private readonly NoteContext _context;
 
-        public ListController(ListContext context)
+        public ListController(NoteContext context)
         {
             _context = context;
 
@@ -59,20 +59,20 @@ namespace TodoApi.Controllers
             return CreatedAtAction(nameof(GetList), new { id = list.Id }, list);
         }
 
-        // PUT: api/TodoList/5
-        //[HttpPut("{id}")]
-        //public async Task<IActionResult> PutTodoItem(long id, TodoItem item)
-        //{
-        //    if (id != item.Id)
-        //    {
-        //        return BadRequest();
-        //    }
+        // PUT: api/Todo-list/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutListItem(long id, List item)
+        {
+            if (id != item.Id)
+            {
+                return BadRequest();
+            }
 
-        //    _context.Entry(item).State = EntityState.Modified;
-        //    await _context.SaveChangesAsync();
+            _context.Entry(item).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
 
-        //    return NoContent();
-        //}
+            return NoContent();
+        }
 
         // DELETE: api/Todo-list/5
         [HttpDelete("{id}")]

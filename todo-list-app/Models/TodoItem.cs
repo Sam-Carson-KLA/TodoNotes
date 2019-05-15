@@ -1,4 +1,4 @@
-﻿namespace TodoApi.Models
+﻿namespace todo_list_app.Models
 {
     public class TodoItem
     {

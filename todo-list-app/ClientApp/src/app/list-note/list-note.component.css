@@ -1,5 +1,5 @@
 .listCard {
-  background-color: #607d8b;
+  /*background-color: #607d8b;*/
   /*width: 200px;*/
   border-radius: 10px;
 }
@@ -20,24 +20,25 @@
 .color1 {
   outline: none;
   border: 0;
+  background-color: #ffffff;
 }
 
 .color2 {
   outline: none;
   border: 0;
-  background-color: red;
+  background-color: #f48d86;
 }
 
 .color3 {
   outline: none;
   border: 0;
-  background-color: yellow;
+  background-color: #f7f7ad;
 }
 
 .color4 {
   outline: none;
   border: 0;
-  background-color: blue;
+  background-color: #5d98f7;
 }
 
 .checkbox {
