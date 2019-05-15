@@ -1,14 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿//using Microsoft.EntityFrameworkCore;
 
-namespace TodoApi.Models
-{
-    public class ListContext : DbContext
-    {
-        public ListContext(DbContextOptions<ListContext> options)
-            : base(options)
-        {
-        }
+//namespace todo_list_app.Models
+//{
+//    public class ListContext : DbContext
+//    {
+//        public ListContext(DbContextOptions<ListContext> options)
+//            : base(options)
+//        {
+//        }
 
-        public DbSet<List> ListItems { get; set; }
-    }
-}
+//        public DbSet<List> ListItems { get; set; }
+//    }
+//}

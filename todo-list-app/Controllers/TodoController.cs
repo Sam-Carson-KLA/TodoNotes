@@ -4,17 +4,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TodoApi.Models;
+using todo_list_app.Models;
 
-namespace TodoApi.Controllers
+namespace todo_list_app.Controllers
 {
     [Route("api/todo")]
     [ApiController]
     public class TodoController : ControllerBase
     {
-        private readonly TodoContext _context;
+        private readonly NoteContext _context;
 
-        public TodoController(TodoContext context)
+        public TodoController(NoteContext context)
         {
             _context = context;
 

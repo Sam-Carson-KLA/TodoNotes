@@ -34,6 +34,15 @@ export class NoteService {
         );
     }
 
+    update (list: List | number): Observable<List> {
+      const id = typeof list === 'number' ? list : list.id;
+      const url = `${this.noteUrl}/${id}`;
+
+      return this.http.put(url, list, this.httpOptions).pipe(
+        catchError(this.handleError<any>('update'))
+      );
+    }
+
     //updateCompletion(item: TodoItem): Observable<TodoItem> {
     //    return this.http.put(this.todoUrl + "/" + item.id, item, this.httpOptions).pipe(
     //        catchError(this.handleError<any>('updateCompletion'))
@@ -63,4 +72,5 @@ interface TodoItem {
 interface List {
     id: number;
     name: string;
+    colorHex: string;
 }

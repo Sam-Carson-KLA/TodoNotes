@@ -1,6 +1,6 @@
 <p *ngIf="!todoList"><em>Loading...</em></p>
 
-<mat-card class="listCard" *ngIf="todoList">
+<mat-card [ngStyle]="{backgroundColor: list.colorHex}" class="listCard" *ngIf="todoList">
   <mat-card-header><h4>{{list.name}}</h4></mat-card-header>
   <mat-card-content class="listItem" *ngFor="let item of todoList">
     <span *ngIf="item.listId == list.id">
@@ -23,10 +23,10 @@
       <mat-icon class="footerItem" (click)="deleteNote()" matTooltip="Delete Note">delete</mat-icon>
       <mat-icon class="footerItem" [matMenuTriggerFor]="menu" matTooltip="Change Color">color_lens</mat-icon>
       <mat-menu #menu="matMenu">
-        <button class="color1" mat-menu-item>white</button>
-        <button class="color2" mat-menu-item>red</button>
-        <button class="color3" mat-menu-item>yellow</button>
-        <button class="color4" mat-menu-item>blue</button>
+        <button class="color1" (click)="updateColor('white')" mat-menu-item>white</button>
+        <button class="color2" (click)="updateColor('red')" mat-menu-item>red</button>
+        <button class="color3" (click)="updateColor('yellow')" mat-menu-item>yellow</button>
+        <button class="color4" (click)="updateColor('blue')" mat-menu-item>blue</button>
       </mat-menu>
     </span>
 
